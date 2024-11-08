@@ -1,79 +1,65 @@
-import './store.js'
+import { renderMenu } from "./render.js";
+import { dishesData } from "./store.js";
 
-const dishesNav = document.querySelector('.dishes__nav');
+
+const cartButton = document.querySelector('.nav__cart');
+const cart = document.querySelector('.cart');
+const navTheme = document.querySelector('.nav__theme');
+
+document.addEventListener('DOMContentLoaded', () => {
+    renderMenu(dishesData);
+    observeSections();
+});
+
 window.addEventListener('scroll', () => {
-    const rectTop = dishesNav.getBoundingClientRect().top;
-
-    if (rectTop <= 50) {
-        dishesNav.classList.add('_fullwidth');
-    } else {
-        dishesNav.classList.remove('_fullwidth');
-    };
+    observeSections();
 });
 
-
-document.querySelectorAll('.dishes__nav > a').forEach((el) => {
-    el.addEventListener('click', (e) => {
-        e.preventDefault();
-
-        document.querySelectorAll('.dishes__nav > a').forEach((elem) => {
-            elem.classList.remove('_active');
-        });
-        
-        el.classList.add('_active');
-        
-
-        document.querySelector(el.href.split('#.')[1]).scrollIntoView({
-            behavior: 'smooth',
-            block: 'center'
-        });
-    });
-
-});
-
-
-function closestCard() {
-    const cards = document.querySelectorAll('section');
-    let closest = null;
+function observeSections() {
+    const sections = document.querySelectorAll('.dishes__section');
+    const links = document.querySelectorAll('.dishes__link');
+    let closestSection = null;
     let closestDistance = Infinity;
 
-    cards.forEach(card => {
-        const distance = Math.abs(card.getBoundingClientRect().top);
-        if (distance < closestDistance + 100) {
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const sectionCenter = rect.top + rect.height / 2;
+        const screenCenter = window.innerHeight / 2;
+        const distance = Math.abs(sectionCenter - screenCenter);
+
+        if (distance < closestDistance) {
             closestDistance = distance;
-            closest = card;
+            closestSection = section;
         };
     });
 
-    return closest;
+    if (closestSection) {
+        links.forEach(link => {
+            link.classList.remove('_active');
+        });
+        const activeLink = document.querySelector(`.dishes__link[href="#${closestSection.id}"]`);
+        if (activeLink) {
+            activeLink.classList.add('_active');
+        };
+    };
 };
 
-window.addEventListener('scroll', () => {
-    const activeLink = document.getElementById('to_' + closestCard().id);
-
-    document.querySelectorAll('.dishes__nav > a').forEach((el) => {
-        el.classList.remove('_active');
-    });
-    
-    activeLink.classList.add('_active');
-});
+cartButton.onclick = function () {
+    cartButton.classList.toggle('_active');
+    cart.classList.toggle('_active');
+    document.body.classList.toggle('_whenCart');
+};
 
 
+navTheme.onclick = function () {
+    document.body.classList.toggle('dark-theme');
+    document.body.classList.toggle('light-theme');
+}
 
-document.querySelectorAll('.portion__add').forEach((el) => {
-    el.addEventListener('click', (e) => {
-        let dishesCount = el.parentNode.childNodes[3];
-        dishesCount.innerHTML = parseInt(dishesCount.innerHTML) + 1;
-        
-    });
-});
+let theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
-document.querySelectorAll('.portion__remove').forEach((el) => {
-    el.addEventListener('click', (e) => {
-        let dishesCount = el.parentNode.childNodes[3];
-        if (parseInt(dishesCount.innerHTML) > 0) {
-            dishesCount.innerHTML = parseInt(dishesCount.innerHTML) - 1;
-        };
-         
-    });
-});
+document.body.classList.add(theme + '-theme');
+
+if (theme != 'light' && theme != 'dark') {
+    document.body.classList.add('light-theme')
+};

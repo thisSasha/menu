@@ -1,151 +1,157 @@
 export let data = {
     valute: '$',
     language: document.documentElement.lang,
+    name: 'Shakespeare'
 };
+
+
+export let languageData = {
+    ru: {
+        'title': 'Меню | ' + data.name,
+        '#menuTitle': 'Меню',
+        '#orderTitle': 'Ваш заказ',
+        'forJs': {
+            total: 'Итого',
+            portion: 'Порция',
+            count: 'Количество'
+        },
+    },
+    en: {
+        'title': 'Menu | ' + data.name,
+        '#menuTitle': 'Menu',
+        '#orderTitle': 'Your Order',
+        'forJs': {
+            total: 'Total',
+            portion: 'Portion',
+            count: 'Count'
+        },
+    },
+    de: {
+        'title': 'Menü | ' + data.name,
+        '#menuTitle': 'Menü',
+        '#orderTitle': 'Ihre Bestellung',
+        'forJs': {
+            total: 'Gesamt',
+            portion: 'Portion',
+            count: 'Count'
+        },
+    },
+};
+
+
+
 
 export let dishesData = {
     'category1': {
         name: {
-            ru: 'Основные блюда',
-            en: 'Main dishes',
-            de: 'Hauptgericht',
+            ru: 'Напитки',
+            en: 'Drinks',
+            de: 'Getränke',
         },
         items: [
             {
                 name: {
-                    ru: 'Молочный суп',
-                    en: 'Milk soup',
-                    de: 'Milchsuppe',
+                    ru: 'Лимонад',
+                    en: 'Lemonade',
+                    de: 'Limonade',
                 },
                 price: {
-                    1: 2,
-                    2: 5,
+                    '200ml': 5,
+                    '500ml': 10,
                 },
                 description: {
-                    ru: 'Он очень молочный',
-                    en: 'It is very milk',
-                    de: 'Es ist sehr Milch',
+                    ru: 'Освежающий напиток с лимонным вкусом',
+                    en: 'Refreshing drink with lemon flavor',
+                    de: 'Erfrischungsgetränk mit Zitronengeschmack',
                 },
             },
             {
                 name: {
-                    ru: 'Говядина с овощами',
-                    en: 'Beef with vegetables',
-                    de: 'Rindfleisch mit Gemüse',
+                    ru: 'Мохито безалкогольный',
+                    en: 'Non-alcoholic Mojito',
+                    de: 'Alkoholfreier Mojito',
                 },
                 price: {
-                    1: 10,
-                    2: 20,
+                    '200ml': 7,
+                    '400ml': 13,
                 },
                 description: {
-                    ru: 'Нежная говядина с гарниром из овощей.',
-                    en: 'Tender beef with vegetable garnish.',
-                    de: 'Zartes Rindfleisch mit Gemüsegarnitur.',
+                    ru: 'Освежающий мятный коктейль с лаймом',
+                    en: 'Refreshing mint cocktail with lime',
+                    de: 'Erfrischender Minzcocktail mit Limette',
                 },
             },
             {
                 name: {
-                    ru: 'Картофельное пюре',
-                    en: 'Mashed potatoes',
-                    de: 'Kartoffelpüree',
+                    ru: 'Чай с лимоном',
+                    en: 'Lemon Tea',
+                    de: 'Zitronentee',
                 },
                 price: {
-                    1: 3,
-                    2: 6,
+                    '200ml': 4,
+                    '400ml': 8,
                 },
                 description: {
-                    ru: 'Классическое картофельное пюре с маслом.',
-                    en: 'Classic mashed potatoes with butter.',
-                    de: 'Klassisches Kartoffelpüree mit Butter.',
-                },
-            },
-            {
-                name: {
-                    ru: 'Рыба в кляре',
-                    en: 'Battered fish',
-                    de: 'Fisch im Teig',
-                },
-                price: {
-                    1: 8,
-                    2: 16,
-                },
-                description: {
-                    ru: 'Золотистая рыба в хрустящем кляре.',
-                    en: 'Golden fish in crispy batter.',
-                    de: 'Goldener Fisch im knusprigen Teig.',
+                    ru: 'Горячий чай с лимоном',
+                    en: 'Hot tea with lemon',
+                    de: 'Heißer Tee mit Zitrone',
                 },
             },
         ],
     },
     'category2': {
         name: {
-            ru: 'Супы',
-            en: 'Soups',
-            de: 'Suppen',
+            ru: 'Булочные изделия',
+            en: 'Bakery products',
+            de: 'Backwaren',
         },
         items: [
             {
                 name: {
-                    ru: 'Томатный суп',
-                    en: 'Tomato soup',
-                    de: 'Tomatensuppe',
+                    ru: 'Круассан',
+                    en: 'Croissant',
+                    de: 'Croissant',
                 },
                 price: {
-                    1: 4,
-                    2: 8,
+                    '100g': 4,
+                    '200g': 7,
                 },
                 description: {
-                    ru: 'Свежий томатный суп с базиликом.',
-                    en: 'Fresh tomato soup with basil.',
-                    de: 'Frische Tomatensuppe mit Basilikum.',
+                    ru: 'Классический французский круассан',
+                    en: 'Classic French croissant',
+                    de: 'Klassisches französisches Croissant',
                 },
             },
             {
                 name: {
-                    ru: 'Куриный бульон',
-                    en: 'Chicken broth',
-                    de: 'Hühnerbrühe',
+                    ru: 'Слойка с яблоком',
+                    en: 'Apple Puff',
+                    de: 'Apfeltasche',
                 },
                 price: {
-                    1: 3,
-                    2: 7,
+                    '100g': 5,
+                    '200g': 9,
                 },
                 description: {
-                    ru: 'Легкий куриный бульон с зеленью.',
-                    en: 'Light chicken broth with herbs.',
-                    de: 'Leichte Hühnerbrühe mit Kräutern.',
+                    ru: 'Слойка с начинкой из яблок',
+                    en: 'Puff pastry with apple filling',
+                    de: 'Blätterteig mit Apfelfüllung',
                 },
             },
             {
                 name: {
-                    ru: 'Грибной крем-суп',
-                    en: 'Mushroom cream soup',
-                    de: 'Pilzcremesuppe',
+                    ru: 'Багет',
+                    en: 'Baguette',
+                    de: 'Baguette',
                 },
                 price: {
-                    1: 5,
-                    2: 10,
+                    '100g': 3,
+                    '200g': 5,
                 },
                 description: {
-                    ru: 'Нежный крем-суп из лесных грибов.',
-                    en: 'Tender cream soup made from forest mushrooms.',
-                    de: 'Zarte Cremesuppe aus Waldpilzen.',
-                },
-            },
-            {
-                name: {
-                    ru: 'Суп из чечевицы',
-                    en: 'Lentil soup',
-                    de: 'Linsensuppe',
-                },
-                price: {
-                    1: 4,
-                    2: 9,
-                },
-                description: {
-                    ru: 'Питательный суп из красной чечевицы.',
-                    en: 'Hearty soup made from red lentils.',
-                    de: 'Herzhafte Suppe aus roten Linsen.',
+                    ru: 'Французский хлеб с хрустящей корочкой',
+                    en: 'French bread with a crispy crust',
+                    de: 'Französisches Brot mit knuspriger Kruste',
                 },
             },
         ],
@@ -159,18 +165,35 @@ export let dishesData = {
         items: [
             {
                 name: {
-                    ru: 'Шоколадный торт',
-                    en: 'Chocolate cake',
-                    de: 'Schokoladenkuchen',
+                    ru: 'Чизкейк',
+                    en: 'Cheesecake',
+                    de: 'Käsekuchen',
                 },
                 price: {
-                    1: 6,
-                    2: 12,
+                    '100g': 6,
+                    '200g': 12,
+                    '300g': 16,
                 },
                 description: {
-                    ru: 'Влажный шоколадный торт с ганашем.',
-                    en: 'Moist chocolate cake with ganache.',
-                    de: 'Feuchter Schokoladenkuchen mit Ganache.',
+                    ru: 'Лёгкий сырный торт с клубничным соусом',
+                    en: 'Light cheese cake with strawberry sauce',
+                    de: 'Leichter Käsekuchen mit Erdbeersoße',
+                },
+            },
+            {
+                name: {
+                    ru: 'Шоколадный мусс',
+                    en: 'Chocolate Mousse',
+                    de: 'Schokoladenmousse',
+                },
+                price: {
+                    '100g': 8,
+                    '200g': 15,
+                },
+                description: {
+                    ru: 'Воздушный шоколадный десерт',
+                    en: 'Airy chocolate dessert',
+                    de: 'Luftiges Schokoladen-Dessert',
                 },
             },
             {
@@ -180,45 +203,13 @@ export let dishesData = {
                     de: 'Tiramisu',
                 },
                 price: {
-                    1: 5,
-                    2: 10,
+                    '100g': 10,
+                    '200g': 18,
                 },
                 description: {
-                    ru: 'Классический итальянский десерт с маскарпоне.',
-                    en: 'Classic Italian dessert with mascarpone.',
-                    de: 'Klassisches italienisches Dessert mit Mascarpone.',
-                },
-            },
-            {
-                name: {
-                    ru: 'Ягодный пирог',
-                    en: 'Berry pie',
-                    de: 'Beerenkuchen',
-                },
-                price: {
-                    1: 4,
-                    2: 8,
-                },
-                description: {
-                    ru: 'Домашний пирог с лесными ягодами.',
-                    en: 'Homemade pie with forest berries.',
-                    de: 'Hausgemachter Kuchen mit Waldbeeren.',
-                },
-            },
-            {
-                name: {
-                    ru: 'Мороженое',
-                    en: 'Ice cream',
-                    de: 'Eiscreme',
-                },
-                price: {
-                    1: 3,
-                    2: 6,
-                },
-                description: {
-                    ru: 'Пломбир с клубникой.',
-                    en: 'Vanilla ice cream with strawberries.',
-                    de: 'Vanilleeis mit Erdbeeren.',
+                    ru: 'Итальянский десерт с маскарпоне и кофе',
+                    en: 'Italian dessert with mascarpone and coffee',
+                    de: 'Italienisches Dessert mit Mascarpone und Kaffee',
                 },
             },
         ],
@@ -226,34 +217,16 @@ export let dishesData = {
 };
 
 
-
-
-
-
 export let cartData = {
-    'category3': {
-        name: {
-            ru: 'Десерты',
-            en: 'Desserts',
-            de: 'Nachspeisen',
-        },
-        items: [
-            {
-                name: {
-                    ru: 'Шоколадный торт',
-                    en: 'Chocolate cake',
-                    de: 'Schokoladenkuchen',
-                },
-                price: {
-                    1: [6, 1],
-                    2: [12, 0],
-                },
-                description: {
-                    ru: 'Влажный шоколадный торт с ганашем.',
-                    en: 'Moist chocolate cake with ganache.',
-                    de: 'Feuchter Schokoladenkuchen mit Ganache.',
-                },
-            },
-        ],
-    },
+    
+};
+
+// if (localStorage.getItem('cartData')) {
+//     cartData = JSON.parse(localStorage.getItem('cartData'));
+// };
+
+
+export function setCartData(newData) {
+    cartData = newData;
+    // localStorage.setItem('cartData', JSON.stringify(cartData));
 };

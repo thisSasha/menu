@@ -1,3 +1,5 @@
+
+
 body {
     padding: 80px 0;
 }
@@ -14,7 +16,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 8px 16px;
-    z-index: 11;
+    z-index: 103;
     background: var(--color1);
 }
 
@@ -35,6 +37,10 @@ nav {
 
 .nav__logo img {
     width: 100%;
+}
+
+.nav__cart, .nav__cart::before {
+    transition: 400ms;
 }
 
 
@@ -62,12 +68,12 @@ nav {
     }
 }
 
-.nav__cart._active {
+.nav__cart._noffication:not(._active) {
     position: relative;
     animation: shake 2.4s ease-in-out infinite;
 }
 
-.nav__cart._active::before {
+.nav__cart._noffication:not(._active)::before {
     content: '';
     position: absolute;
     top: -2px;
@@ -90,6 +96,8 @@ nav {
 
 
 
+
+
 .dishes {
     position: relative;
     display: flex;
@@ -97,14 +105,17 @@ nav {
     justify-content: center;
     align-items: center;
     gap: 32px;
+    padding-bottom: 120px;
 }
 
 .dishes__nav {
     width: 88%;
     padding: 8px 16px;
 
-    background-color: var(--color1);
+    background-color: var(--color1-5);
     border-radius: 20px;
+
+    backdrop-filter: blur(2px);
 
     z-index: 102;
 
@@ -144,10 +155,11 @@ nav {
     transform: translateX(0);
 }
 
-.dishes__list {
+.section__list {
     display: flex;
     align-items: stretch;
     padding: 16px;
+    transition: 300ms;
     gap: 16px;
     overflow-y: hidden;
     overflow-x: auto;
@@ -169,10 +181,23 @@ nav {
     border: 2px solid var(--color3);
     border-radius: 20px;
     flex-shrink: 0;
-    background: var(--color1-1);
-    padding: 0;
     background: var(--color1);
+    padding: 0;
+    transition: 200ms;
 }
+
+._selected {
+    background: var(--color2);
+}
+
+
+@keyframes selectedCard {
+    100% {
+        background: var(--color2);
+    }
+}
+
+
 
 .card__content {
     padding: 20px 10px;
@@ -199,13 +224,18 @@ nav {
 .card__img {
     width: 100%;
     height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    overflow: hidden;
+    border-radius: 18px 18px 0 0;
 }
 
 .card__img img {
     object-fit: cover;
     object-position: center center;
-    width: 100%;
-    border-radius: 20px 20px 0 0;
+    min-width: 100%;
+    min-height: 100%;
 }
 
 .card__name {
@@ -216,6 +246,13 @@ nav {
     margin-bottom: 25px;
 }
 
+
+
+
+
+
+
+
 .portion__management {
     display: flex;
     gap: 10px;
@@ -223,10 +260,10 @@ nav {
     justify-content: center;
 }
 
-.portion__management button,
-.portion__management p {
+.portion__management > * {
     width: 40px;
     height: 40px;
+    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -237,6 +274,12 @@ nav {
     border: 1px solid var(--color3);
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
+
 .portion__management button:active {
     background-color: var(--color3);
     color: var(--color1);
@@ -244,3 +287,53 @@ nav {
 }
 
 
+
+
+
+
+
+.cart {
+    position: fixed;
+    z-index: 102;
+    top: 50px;
+    left: 100vw;
+
+    width: 100%;
+    height: calc(100vh - 50px);
+
+    padding: 20px;
+
+    background-color: var(--color1);
+    color: var(--color4);
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+    transition: 350ms;
+}
+
+.cart._active {
+    left: 0;
+}
+
+
+.cart h1 {
+    margin-bottom: 40px;
+}
+
+.cart__list {
+    overflow-x: hidden;
+    width: 100vw;
+    position: relative;
+    left: -20px;
+}
+
+.card__portion._0 {
+    display: none;
+}
+
+body._whenCart {
+    /* background: var(--color1); */
+    overflow: hidden;
+}
+
+/*4852*/

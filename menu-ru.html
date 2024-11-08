@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link href="https://fonts.googleapis.com/css?family=SUSE:100,200,300,regular,500,600,700,800" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,regular,500,600,700,800,300italic,italic,500italic,600italic,700italic,800italic"
+        rel="stylesheet" />
     <title>Menu</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-        rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/oathanrex/font-awesome-pro@main/fontawesome-pro-6.5.2-web/css/all.min.css"
         rel="stylesheet">
     <link rel="stylesheet" href="./css/root.css">
@@ -18,10 +17,8 @@
     <link rel="stylesheet" href="./css/menu.css">
 </head>
 
-<body class="light-theme">
-    <div class="overlay">
-
-    </div>
+<body>
+    <div class="overlay"></div>
     <nav>
         <div class="nav__changeLang">
             <a href="./menu-en.html">EN</a>
@@ -29,17 +26,34 @@
             <a href="./menu-de.html">DE</a>
         </div>
         <a href="index.html" class="nav__logo"><img src="./img/main/logo.svg"></a>
-        <button class="nav__cart _circleBtn">
-            <i class="fa-regular fa-cart-shopping"></i>
-        </button>
+        <div class="nav__links">
+            <button class="nav__theme _circleBtn">
+                <i class="fa-solid fa-sun-bright"></i>
+            </button>
+            <button class="nav__cart _circleBtn">
+                <i class="fa-regular fa-cart-shopping"></i>
+            </button>
+        </div>
     </nav>
 
 
     <main class="dishes">
-        <h1>Меню</h1>
+        <h1 id="menuTitle">Меню</h1>
 
         <div class="dishes__nav"></div>
     </main>
+
+    <section class="cart">
+        <h1 id="orderTitle">Ваш заказ</h1>
+        <div class="cart__nav">
+            <!-- TODO -->
+        </div>
+        <div class="cart__list"></div>
+    </section>
+
+    <footer>
+        <!-- TODO -->
+    </footer>
 
     <script type="module" src="./js/store.js"></script>
     <script type="module" src="./js/render.js"></script>
